@@ -58,6 +58,52 @@ See the matching ones
 
 ## Contact
 
-<a href="mailto:varunsivakumar2002@gmail.com">Mail me</a>
+<style>
+    .cards{
+        width: 100%;
+        display:flex;
+        justify-content: space-evenly;
+    }
+    .card{
+        height:200px;
+        width:44%;
+        background:#ffc8dd;
+        border-radius: 5px;
+        padding:2%;
+        color: #8338ec;
+    }
+    .card a{
+        text-decoration:none;
+        color:#3a86ff
+    }
+    .images{
+        width:300px
+    }
+    .images a img{
+        width:50px;
+        aspect-ratio:1/1;
+    }
 
-[Varun S](https://github.com/VarunS21)
+</style>
+<div class="cards">
+    <div class="card">
+        <h3>Varun S</h3>
+        <h5>Backend(Flask) and Machine learning</h5>
+        <hr style="background-color:#3a86ff; height:2px;"/>
+        <div class='images'>
+            <a href="mailto:varunsivakumar2002@gmail.com"><img src="./static/images/mail.png"></a>
+            <a href="https://www.linkedin.com/in/varun-s-132197210/" ><img src="./static/images/linkedin.png"></a>
+            <a href="https://github.com/VarunS21"><img src="./static/images/github.png"></a>
+        </div>
+    </div>
+    <div class="card">
+        <h3>Athidya U</h3>
+        <h5>Front end and designing</h5>
+        <hr style="background-color:#3a86ff; height:2px;"/>
+        <div class='images'>
+            <a href="mailto:athidya23.03.2003@gmail.com"><img src="./static/images/mail.png"></a>
+            <a href="https://www.linkedin.com/in/athidya-udayakumar-103506213?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><img src="./static/images/linkedin.png"></a>
+            <a href="https://github.com/M3PH1ST023"><img src="./static/images/github.png"></a>
+        </div>
+    </div>
+</div>

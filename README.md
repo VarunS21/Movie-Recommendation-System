@@ -58,6 +58,6 @@ See the matching ones
 
 ## Contact
 
-<a href="mailto:varuns2002@gmail.com">Mail me</a>
+<a href="mailto:varunsivakumar2002@gmail.com">Mail me</a>
 
 [Varun S](https://github.com/VarunS21)

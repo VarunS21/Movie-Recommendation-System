@@ -1,3 +1,31 @@
+<style>
+    .cards{
+        width: 100%;
+        display:flex;
+        justify-content: space-evenly;
+    }
+    .card{
+        height:150px;
+        width:44%;
+        background:#ffc8dd;
+        border-radius: 5px;
+        padding:2%;
+        color: #8338ec;
+    }
+    .card a{
+        text-decoration:none;
+        color:#3a86ff
+    }
+    .images{
+        width:300px
+    }
+    .images a img{
+        width:25px;
+        aspect-ratio:1/1;
+    }
+
+</style>
+
 <img src="./static/images/banner.jpg" style="width:100%;border-radius: 10px">
 
 # MOVIE RECOMMENDATION SYSTEM
@@ -68,33 +96,6 @@ See the matching ones
 
 ## Contact
 
-<style>
-    .cards{
-        width: 100%;
-        display:flex;
-        justify-content: space-evenly;
-    }
-    .card{
-        height:200px;
-        width:44%;
-        background:#ffc8dd;
-        border-radius: 5px;
-        padding:2%;
-        color: #8338ec;
-    }
-    .card a{
-        text-decoration:none;
-        color:#3a86ff
-    }
-    .images{
-        width:300px
-    }
-    .images a img{
-        width:50px;
-        aspect-ratio:1/1;
-    }
-
-</style>
 <div class="cards">
     <div class="card">
         <h3>Varun S</h3>

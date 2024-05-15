@@ -7,12 +7,20 @@ With a wide range of movie list and enhanced way of using filtering this project
 ### INSTALLATION
 
 ```
-> git clone
+git clone https://github.com/VarunS21/Movie-Recommendation-System.git
+```
 
-> cd movie-recommendation-system
+```
+cd movie-recommendation-system
+```
 
-> python -m pip install -r requirements.txt
+```
+python -m pip install -r requirements.txt
 
+```
+
+```
+.venv\Scripts\activate
 ```
 
 ### Execution
@@ -21,7 +29,9 @@ Run the application by double clicking the 'run.bat' file
 
 or
 
-> python app.py
+```
+python app.py
+```
 
 ### Tech Stack and Tools used
 

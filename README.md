@@ -14,7 +14,7 @@
     }
     .card a{
         text-decoration:none;
-        color:#3a86ff
+        color:#3a86ff;
     }
     .images{
         width:300px

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="stylesheet"
+            href="{{ url_for('static', filename='css/styles.css') }}"
+        />
+        <title>Movie recommender</title>
+    </head>
+    <body class="container">
+        <h2>MOVIE RECOMMENDATION SYSTEM</h2>
+        <div class="forms">
+            <form method="post" onsubmit="handleSubmit()" id="form">
+                <label for="movieName">Movie Name</label>
+                <input
+                    type="text"
+                    placeholder="Enter a movie name"
+                    id="movieName"
+                    name="movie"
+                />
+                <label for="numberOfMovie"
+                    >Choose Number of Movie to recommend</label
+                >
+                <div class="range">
+                    <span onclick="decrease()">-</span>
+                    <span id="rangeValue" name="range">10</span>
+                    <span onclick="increase()">+</span>
+                </div>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+        <div class="answer" id="answer" style="overflow: scroll">
+            <button onclick="closeToggle()" class="close-icon">X</button>
+            <h2>Recommended movies</h2>
+            <div id="answers"></div>
+        </div>
+        <div class="bg-imgs">
+            <img src="../static/images/layer3.png" alt="" />
+            <img src="../static/images/layer2.png" alt="" />
+            <img src="../static/images/layer1.png" alt="" />
+            <img src="../static/images/movie1.jpg" alt="" />
+        </div>
+        <div class="bg"><img src="../static/images/bg-2.gif" alt="" /></div>
+        <div class="loading" id="loading">
+            <!-- <img src="../static/images/gradient-5812_256.gif" alt="" /> -->
+            <div class="loader"></div>
+        </div>
+    </body>
+    <script>
+        function load() {
+            var loadEle = document.getElementById("loading");
+            loadEle.classList.toggle("visible");
+            setTimeout(() => {
+                answerEle.classList.toggle("visible");
+            }, 4000);
+        }
+        function increase() {
+            let rangeEle = document.getElementById("rangeValue");
+            let range = rangeEle.innerHTML;
+            range = parseInt(range);
+            rangeEle.innerHTML = ++range;
+        }
+        function decrease() {
+            let rangeEle = document.getElementById("rangeValue");
+            let range = rangeEle.innerHTML;
+            range = parseInt(range);
+            rangeEle.innerHTML = --range;
+        }
+        async function handleSubmit() {
+            event.preventDefault();
+
+            let movie = document.getElementById("movieName").value;
+            let rangeEle = document.getElementById("rangeValue");
+            let range = rangeEle.innerHTML;
+            range = parseInt(range);
+
+            let postBody = {
+                movie: movie,
+                range: range,
+            };
+            let resp;
+
+            var loadEle = document.querySelector(".loading");
+            loadEle.style.visibility = "visible";
+
+            await fetch("http://127.0.0.1:5000/movie", {
+                method: "POST",
+                body: JSON.stringify(postBody),
+                headers: {
+                    "Content-type": "application/json; charset=UTF-8",
+                },
+            })
+                .then((response) => response.json())
+                .then((json) => (resp = json));
+
+            loadEle.style.visibility = "hidden";
+            var answerEle = document.getElementById("answer");
+            answerEle.classList.toggle("visible");
+
+            let answersEle = document.getElementById("answers");
+            let output = `<ul>`;
+            resp.forEach((element) => {
+                output += `<li>${element}</li>`;
+            });
+            output += `</ul>`;
+            answersEle.innerHTML = output;
+        }
+        function closeToggle() {
+            var answerEle = document.getElementById("answer");
+            answerEle.classList.toggle("visible");
+        }
+    </script>
+</html>

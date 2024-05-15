@@ -1,0 +1,235 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+:root {
+    --color1: #000e53;
+    --color2: #1dd9ff;
+    --color3: #2a2a2a;
+    --font: "Bebas Neue", sans-serif;
+}
+
+* {
+    color: var(--color2);
+    font-family: var(--font);
+}
+html {
+    margin: 0px;
+}
+body {
+    position: absolute;
+    margin: 0px;
+    height: 100%;
+    width: 100%;
+    background: var(--color1);
+}
+.container {
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+}
+h2 {
+    text-align: left;
+    margin-left: 7.5%;
+    font-size: 5rem;
+}
+.forms {
+    height: 80%;
+    display: flex;
+    justify-content: space-evenly;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    height: 60%;
+    padding: 2%;
+    gap: 20px;
+    font-size: 30px;
+    border-radius: 10px;
+    box-shadow: -8px -8px 15px rgba(225, 225, 225, 0.2),
+        8px 8px 15px rgba(0, 0, 0, 0.3);
+    background: var(--color1);
+}
+form input {
+    height: 40px;
+    background: transparent;
+    border-radius: 10px;
+    padding-left: 20px;
+    font-size: 25px;
+    box-shadow: -8px -8px 15px rgba(225, 225, 225, 0.1) inset,
+        8px 8px 15px rgba(0, 0, 0, 0.3) inset;
+    border: none;
+}
+form button {
+    cursor: pointer;
+    position: relative;
+    background: var(--color2);
+    color: var(--color1);
+    font-size: 25px;
+    width: 60%;
+    border: none;
+    border-radius: 5px;
+    left: 20%;
+    transition: 0.5s ease;
+}
+form button:hover {
+    background: var(--color1);
+    color: var(--color2);
+    border: 2px solid var(--color2);
+    box-shadow: -8px -8px 15px rgba(225, 225, 225, 0.2),
+        8px 8px 15px rgba(0, 0, 0, 0.3);
+}
+.range {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.range span {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 40px;
+    border-radius: 5px;
+    box-shadow: -8px -8px 15px rgba(225, 225, 225, 0.1),
+        8px 8px 15px rgba(0, 0, 0, 0.2);
+}
+.answer {
+    z-index: 1;
+    padding: 2% 10%;
+    width: 20%;
+    position: absolute;
+    top: 25%;
+    left: 30%;
+    min-height: 55%;
+    max-height: max-content;
+    border-radius: 10px;
+    background: #000e539a;
+    backdrop-filter: blur(2px);
+    box-shadow: -8px -8px 15px rgba(225, 225, 225, 0.1),
+        8px 8px 15px rgba(0, 0, 0, 0.2);
+    visibility: hidden;
+}
+.answer h2 {
+    font-size: 30px;
+    margin-top: 0px;
+}
+.visible {
+    visibility: visible;
+}
+.bg-imgs {
+    height: 100%;
+    aspect-ratio: 1/1;
+    position: fixed;
+    z-index: -1;
+    bottom: -20%;
+    right: -10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.bg-imgs img {
+    position: absolute;
+}
+.bg-imgs img:nth-child(1) {
+    opacity: 0.9;
+    height: 120%;
+    z-index: -3;
+    animation: rotateRight 24s infinite;
+    animation-timing-function: linear;
+}
+.bg-imgs img:nth-child(2) {
+    height: 100%;
+    z-index: -2;
+    animation: rotateLeft 20s infinite;
+    animation-timing-function: linear;
+}
+.bg-imgs img:nth-child(3) {
+    height: 80%;
+    z-index: -1;
+    animation: rotateRight 16s infinite;
+    animation-timing-function: linear;
+}
+.bg-imgs img:nth-child(4) {
+    height: 30%;
+    aspect-ratio: 1/1;
+    z-index: -1;
+    border-radius: 100%;
+    animation: rotateLeft 20s infinite;
+    animation-timing-function: linear;
+}
+@keyframes rotateRight {
+    0% {
+        rotate: 0deg;
+    }
+    100% {
+        rotate: 360deg;
+    }
+}
+@keyframes rotateLeft {
+    0% {
+        rotate: 0deg;
+    }
+    100% {
+        rotate: -360deg;
+    }
+}
+#answers ul li {
+    font-size: 25px;
+    width: 120%;
+}
+.close-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 2px;
+    background: var(--color2);
+    color: var(--color1);
+    border: none;
+}
+.bg {
+    background-image: url("../images/bg-2.gif");
+    position: fixed;
+    width: 150%;
+    height: 100vh;
+    opacity: 0.2;
+    z-index: -5;
+}
+.loading {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: #ffffff34;
+    visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loader {
+    width: 70px;
+    aspect-ratio: 1;
+    display: grid;
+    animation: l14 4s infinite;
+}
+.loader::before,
+.loader::after {
+    content: "";
+    grid-area: 1/1;
+    border: 8px solid;
+    border-radius: 50%;
+    border-color: red red #fff #fff;
+    mix-blend-mode: darken;
+    animation: l14 1s infinite linear;
+}
+.loader::after {
+    border-color: #fff #fff blue blue;
+    animation-direction: reverse;
+}
+@keyframes l14 {
+    100% {
+        transform: rotate(1turn);
+    }
+}
